@@ -37,6 +37,7 @@ public class ArticleServiceImplTest {	//unit tests the service and mappers
     public void setUp() {
         articleService = new ArticleServiceImpl(articleRepository, articleMapper);
 
+        assertNotNull(articleRepository);
         assertNotNull(articleMapper);
         assertNotNull(ArticleMapper.INSTANCE);
         assertNotNull(MediaMapper.INSTANCE);
@@ -53,7 +54,7 @@ public class ArticleServiceImplTest {	//unit tests the service and mappers
 
 
     @Test
-    public void getArticlesByCategory() throws Exception {
+    public void getArticlesByCategory() {
 
         Flux<ArticleDTO> articles = articleService.getArticlesByCategory(Category.EVENTS.name());
         Long count = articles.count().block();	//trigger the service call and conversions
@@ -61,7 +62,7 @@ public class ArticleServiceImplTest {	//unit tests the service and mappers
     }
 
     @Test
-    public void getArticlesByInvalidCategory() throws Exception  {
+    public void getArticlesByInvalidCategory() {
 
         Flux<ArticleDTO> articles = articleService.getArticlesByCategory("INVALID");
         Long count = articles.count().block();	//trigger the service call and conversions

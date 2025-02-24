@@ -56,9 +56,7 @@ public class ArticleRepositoryTest {
         await().untilTrue(atomicBoolean);
         atomicBoolean.set(false);
 
-        articleRepository.count().subscribe(count -> {
-            System.out.println("Articles count is: " + count);
-        });
+        articleRepository.count().subscribe(count -> System.out.println("Articles count is: " + count));
     }
 
 
@@ -68,7 +66,7 @@ public class ArticleRepositoryTest {
 
         articleRepository.count().subscribe(count -> {
             System.out.println("testGetArticles count is: " + count);
-            assertEquals(count, 3);
+            assertEquals(3, count);
         });
     }
 
