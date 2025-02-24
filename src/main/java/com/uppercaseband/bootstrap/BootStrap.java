@@ -20,12 +20,10 @@ public class BootStrap implements CommandLineRunner {
 
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         loadArticles();
 
-        articleRepository.count().subscribe(count -> {
-            log.debug("Article count is: {}", count);
-        });
+        articleRepository.count().subscribe(count -> log.debug("Article count is: {}", count));
     }
 
 

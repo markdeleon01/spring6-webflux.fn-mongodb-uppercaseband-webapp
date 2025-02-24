@@ -33,6 +33,5 @@ public class ArticleRouterConfig {
                 .GET(ARTICLE_CATEGORY, accept(APPLICATION_JSON),
                         articleHandler::getArticlesByCategory)
                 .build();
-
     }
 }
